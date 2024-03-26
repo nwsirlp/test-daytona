@@ -2,12 +2,12 @@ FROM node:alpine as builder
 
 WORKDIR /app
 
-COPY ./package.json /app/
-
-COPY . . 
+COPY package*.json ./ 
 
 RUN #npm install --legacy-peer-deps app
 
+COPY . . 
+
 EXPOSE 8080
 
-CMD ["./app"]
+CMD ["node", "index.js"]
